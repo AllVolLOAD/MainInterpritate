@@ -1,0 +1,29 @@
+/*
+{
+  desc:"Прослушивание выключателя",
+  tag:"item",
+  selectArea:true,
+  name:"Listner",
+  
+  vars:[
+    {name:"LAMP",type:"devices-list",required:true,filter:["lamp"],desc:""},
+    {name:"Tumbler",type:"devices-list",required:true,filter:[""],desc:""},
+       ]
+}
+*/
+
+V-ID/Tumbler
+{
+	if(opt(0)==0xFC)
+  { 
+  	setStatus(LAMP, ![LAMP]);
+  }
+	if(opt(0)==0xFD)
+  {
+  	setStatus(LAMP, ![LAMP]);
+		if(opt(0)==0xFF)
+  	{
+		setStatus(LAMP, ![LAMP]);
+		}	
+	}
+}
